@@ -1,7 +1,12 @@
+// src/screens/CreateTodoScreen.tsx
 import { useState } from "react";
 import ModalComp from "../../../components/common/Modal";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { COLORS } from "../../../themes/themes";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../redux/store";
+import { addTodo } from "../../../redux/todo/todoSlice";
+import { toast } from "react-toastify";
 
 type CreateTodoType = {
   open: boolean;
@@ -11,11 +16,16 @@ type CreateTodoType = {
 const CreateTodoScreen = ({ open, setOpen }: CreateTodoType) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleFormSubmit = () => {
-    console.log("check", title, description);
+    dispatch(addTodo({ title, description }));
+    setTitle("");
+    setDescription("");
     setOpen();
+    toast.success("Successfully Added");
   };
+
   return (
     <ModalComp handleClose={setOpen} open={open}>
       <Box
@@ -99,7 +109,9 @@ const CreateTodoScreen = ({ open, setOpen }: CreateTodoType) => {
             variant="contained"
             color="primary"
             onClick={handleFormSubmit}
-            sx={{ background: COLORS.MediumWhite }}
+            sx={{
+              background: COLORS.MediumWhite,
+            }}
           >
             <Typography
               sx={{
