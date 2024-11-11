@@ -4,10 +4,16 @@ import { COLORS } from "../../../themes/themes";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../redux/store";
 import { deleteTodo } from "../../../redux/todo/todoSlice";
+import { toast } from "react-toastify";
 
 const TodoListScreen = () => {
   const todos = useSelector((state: RootState) => state.todos.todos);
   const dispatch = useDispatch<AppDispatch>();
+
+  const deleteHandler = (id: number) => {
+    dispatch(deleteTodo(id));
+    toast.success("Successfully Deleted");
+  };
 
   return (
     <Box>
@@ -29,7 +35,7 @@ const TodoListScreen = () => {
               </Typography>
             </Box>
             <IconButton
-              onClick={() => dispatch(deleteTodo(todo.id))}
+              onClick={() => deleteHandler(todo.id)}
               sx={{
                 background: COLORS.RED_BLACK,
                 WebkitTextFillColor: "transparent",
