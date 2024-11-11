@@ -10,16 +10,18 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { navBar } from "../../db";
+import { COLORS } from "../../themes/themes";
 
 const style = {
   mr: 2,
   display: "flex",
   flexGrow: 1,
   fontFamily: "monospace",
-  fontWeight: 700,
-  letterSpacing: ".3rem",
-  color: "inherit",
+  fontWeight: 900,
   textDecoration: "none",
+  background: COLORS.RED_BLACK,
+  WebkitTextFillColor: "transparent",
+  WebkitBackgroundClip: "text",
 };
 
 function NavBarComp() {
@@ -36,7 +38,7 @@ function NavBarComp() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ background: COLORS.MediumWhite }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
