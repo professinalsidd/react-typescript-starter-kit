@@ -5,19 +5,71 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
-
-# production
+# build output
+/dist
 /build
 
-# misc
-.DS_Store
+# Static files
+/*.log
+*.log*
+
+# Typescript cache
+*.tsbuildinfo
+
+# Next.js
+.next/
+out/
+
+# parcel-bundler cache (if using Parcel)
+/.cache
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
+# Storybook files
+.storybook-out
+*.stories.*
+*.stories.tsx
+
+# Logs
+logs
+*.log
 yarn-debug.log*
 yarn-error.log*
+
+# Mac files
+.DS_Store
+
+# IDE files (e.g., VSCode, JetBrains)
+.vscode/
+.idea/
+
+# Firebase cache
+.firebaserc
+.firebase/
+
+# Husky
+.husky/
+
+# Prettier
+.prettier
+
+# Coverage reports
+coverage/
+
+# Redux Persist (optional if using persisted states in local storage)
+persisted_state/
